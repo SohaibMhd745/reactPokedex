@@ -1,38 +1,117 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f5f6fa;
+  color: #333;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.app {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.pokemon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 16px;
+}
+
+.filter-bar {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 12px;
+
+  position: sticky;
+  top: 0;
+  background-color: white;
+  padding: 16px 32px;
+  border-bottom: 1px solid #e0e0e0;
+  z-index: 1000;
+}
+
+.quantity-filter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.type-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.type-badge {
+  font-size: 10px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background-color: #e0e0e0;
+  color: #333;
+  border: none;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.type-badge.selected {
+  background-color: #333;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.pokemon-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  padding: 16px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.pokemon-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.pokemon-image {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+}
+
+.pokemon-infos {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.pokemon-id {
+  font-size: 12px;
+  color: #888;
+}
+
+.pokemon-name {
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: capitalize;
+  color: #2f3640;
+}
+
+.pokemon-types {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
 }
